@@ -1,15 +1,36 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-urfave-cli-v2
+Section: golang
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Dmitry Smirnov <onlyjob@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any,
+               golang-github-burntsushi-toml-dev,
+               golang-github-cpuguy83-go-md2man-v2-dev,
+               golang-github-xrash-smetrics-dev,
+               golang-golang-x-text-dev,
+               golang-golang-x-tools,
+               golang-gopkg-yaml.v3-dev
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+Homepage: https://github.com/urfave/cli
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-urfave-cli-v2
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-urfave-cli-v2.git
+XS-Go-Import-Path: github.com/urfave/cli/v2
+Testsuite: autopkgtest-pkg-go
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-urfave-cli-v2-dev
+Architecture: all
+Depends: golang-github-burntsushi-toml-dev,
+         golang-github-cpuguy83-go-md2man-v2-dev,
+         golang-github-xrash-smetrics-dev,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Multi-Arch: foreign
+Description: package for building command line apps in Go (version 2)
+ "Cli" is a simple, fast, and fun package for building command line apps
+ in Go. The goal is to enable developers to write fast and distributable
+ command line applications in an expressive way.
+ .
+ This package provides cli version 2 (github.com/urfave/cli/v2)
