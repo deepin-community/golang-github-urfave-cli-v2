@@ -1,4 +1,12 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_EXCLUDES := build example-cli example-hello-world
+export DH_GOLANG_INSTALL_ALL := 1
+export DH_GOLANG_GO_GENERATE := 1
+export GOIMPORTS_BIN := /usr/bin/goimports
+
 %:
-	dh $@
+	dh $@ --buildsystem=golang --with=golang --builddirectory=_output
+
+execute_after_dh_auto_configure:
+	cp -v flag-spec.yaml _output/src/github.com/urfave

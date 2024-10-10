@@ -1,0 +1,4 @@
+version=4
+opts="filenamemangle=s%(?:.*?)?v?@ANY_VERSION@\.tar\.gz%@PACKAGE@-$1.tar.gz%" \
+  https://github.com/urfave/cli/tags \
+  .*/v?@ANY_VERSION@\.tar\.gz debian

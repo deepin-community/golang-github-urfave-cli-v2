@@ -1,5 +1,208 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-urfave-cli-v2 (2.25.7-5) unstable; urgency=medium
 
-  * Initial release
+  * Team upload.
+  * Fix tests that fail on 32bit architectures
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Reinhard Tartler <siretart@tauware.de>  Tue, 13 Aug 2024 06:37:34 -0400
+
+golang-github-urfave-cli-v2 (2.25.7-4) unstable; urgency=medium
+
+  * Team upload.
+  * Ignore tests known to fail on 32bit archs.
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 11 Aug 2024 07:52:11 -0400
+
+golang-github-urfave-cli-v2 (2.25.7-3) unstable; urgency=medium
+
+  * Team upload.
+  * Don't exclude altsrc, needed for stand-alone autopkgtest
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 10 Aug 2024 08:51:22 -0400
+
+golang-github-urfave-cli-v2 (2.25.7-2) unstable; urgency=medium
+
+  * Upload to unstable
+  * Bump Standards-Version
+
+ -- Reinhard Tartler <siretart@tauware.de>  Fri, 09 Aug 2024 16:49:39 -0400
+
+golang-github-urfave-cli-v2 (2.25.7-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream release, Closes: #1032865
+  * disable tests that broke because of go-md2man output changes
+  * install extra .gotmpl files
+  * debian/control: add new dependencies on xrash/smetrics, x/text, yamlv3
+
+ -- Reinhard Tartler <siretart@tauware.de>  Fri, 27 Oct 2023 06:19:00 -0400
+
+golang-github-urfave-cli-v2 (2.3.0-3) unstable; urgency=medium
+
+  * Team Upload.
+  * Unbreak test "TestToMan", dependent on output changes of
+    go-md2man tool, Closes: #1054778
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 28 Oct 2023 08:17:07 -0400
+
+golang-github-urfave-cli-v2 (2.3.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * disable broken test dependent on go-md2man output
+  * Apply upstream patch to make test case compatible with Go 1.17
+    so we don't need to skip TestApp_RunAsSubCommandIncorrectUsage any more
+  * Fix reversed Got/Expected in expectFileContent in docs_test.go
+  * Bump dependency golang-github-cpuguy83-go-md2man-v2-dev to (>= 2.0.1)
+    Also fix test expectation for man contents: dash and underscore
+    are no longer escaped with backslash in go-md2man v2.0.1 (Fixes FTBFS)
+  * Use dh-sequence-golang instead of dh-golang and --with=golang
+  * Mark library package with "Multi-Arch: foreign"
+  * Reorder fields in debian/control and debian/copyright
+    as would be generated in the next dh-make-golang release after 0.6.0-1
+  * debian/gbp.conf: Set debian-branch to debian/sid for DEP-14 conformance
+
+ -- Anthony Fok <foka@debian.org>  Sun, 02 Jan 2022 21:38:31 -0700
+
+golang-github-urfave-cli-v2 (2.3.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 2.3.0
+  * Update Section to golang
+  * Update Standards-Version to 4.6.0 (no changes)
+  * Skip test which fails on Go1.17 (Closes: #997557)
+    https://github.com/urfave/cli/issues/1298
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sun, 07 Nov 2021 22:28:47 +0800
+
+golang-github-urfave-cli-v2 (2.2.0-3) unstable; urgency=medium
+
+  * Team upload.
+  * source-only upload for migration to testing
+
+ -- Drew Parsons <dparsons@debian.org>  Sat, 24 Oct 2020 21:53:30 +0800
+
+golang-github-urfave-cli-v2 (2.2.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * remove Depends: golang-github-burntsushi-toml-dev, golang-gopkg-yaml.v2-dev
+    They are only used by altsrc, which we do not ship.
+
+ -- Drew Parsons <dparsons@debian.org>  Tue, 06 Oct 2020 04:36:46 +0800
+
+golang-github-urfave-cli-v2 (2.2.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * update debian/watch to uscan version 4 format and watch v2
+  * New upstream release.
+    - applies debian patch 0001-fix-zsh-autocomplete.patch
+  * exclude executables (usr/bin): build example-cli example-hello-world
+
+ -- Drew Parsons <dparsons@debian.org>  Sat, 03 Oct 2020 17:55:21 +0800
+
+golang-github-urfave-cli (1.22.4-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * update debian/watch to only watch v1.
+    v2 is handled by the golang-github-urfave-cli-v2 package
+  * Depends: golang-github-cpuguy83-go-md2man-v2-dev.
+     - drop debian patch 0001-use-go-md2man-v1.patch.
+  * Depends: golang-github-burntsushi-toml-dev (>= 0.3.1),
+             golang-gopkg-yaml.v2-dev (>= 2.2.2),
+  * debhelper compatibility level 13.
+
+ -- Drew Parsons <dparsons@debian.org>  Sat, 03 Oct 2020 17:24:38 +0800
+
+golang-github-urfave-cli (1.22.2-4) unstable; urgency=medium
+
+  * Team upload.
+  * Backport upstream patch to fix zsh autocomplete
+
+ -- Shengjing Zhu <zhsj@debian.org>  Thu, 13 Feb 2020 22:32:39 +0800
+
+golang-github-urfave-cli (1.22.2-3) unstable; urgency=medium
+
+  * Team upload.
+  * Include autocomplete scripts in dev package
+  * Update Standards-Version to 4.5.0 (no changes)
+  * Fix altsrc exclusion
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sun, 09 Feb 2020 23:19:19 +0800
+
+golang-github-urfave-cli (1.22.2-2) unstable; urgency=medium
+
+  * Team upload.
+  * Update patch using go-md2man v1 to fix manpage format
+
+ -- Shengjing Zhu <zhsj@debian.org>  Fri, 17 Jan 2020 01:07:51 +0800
+
+golang-github-urfave-cli (1.22.2-1) unstable; urgency=medium
+
+  [ Alexandre Viau ]
+   * Point Vcs-* urls to salsa.debian.org.
+
+  [ Dmitry Smirnov ]
+  * Testsuite: autopkgtest-pkg-go
+  * Standards-Version: 4.4.1
+  * DH & compat to version 12.
+
+  [ Shengjing Zhu ]
+  * Team upload.
+  * New upstream release 1.22.2
+  * Update team address to team+pkg-go@tracker.debian.org
+  * Add Rules-Requires-Root
+  * Use debhelper-compat syntax
+  * Add golang-github-cpuguy83-go-md2man-dev to Build-Depends
+  * Add patch to use go-md2man v1
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sat, 04 Jan 2020 15:43:54 +0800
+
+golang-github-urfave-cli (1.20.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * Imported Upstream version 1.20.0
+  * Remove golang-github-burntsushi-toml-dev from Build-Depends
+  * Update d/copyright
+  * Downgrade package priority to optional
+  * Update Standards-Version to 4.1.0
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Tue, 29 Aug 2017 14:05:54 +0200
+
+golang-github-urfave-cli (1.19.1+git20170625.52.b892ba3-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream snapshot, fixing test failure. Closes: #865808
+  * Update to Standards-Version 4.0.0
+    - Use HTTPS URL for d/copyright
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Sun, 02 Jul 2017 12:11:50 +0200
+
+golang-github-urfave-cli (1.19.1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream snapshot.
+  * Add golang-github-burntsushi-toml-dev B-D.
+
+ -- Tim Potter <tpot@hpe.com>  Mon, 30 Jan 2017 12:46:45 +1100
+
+golang-github-urfave-cli (1.18.1-1~bpo8+1) jessie-backports; urgency=medium
+
+  * Rebuild for jessie-backports.
+  * debian/control:
+    - Use dh-golang in jessie-backports (1.19).
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Sat, 08 Jul 2017 01:25:27 +0900
+
+golang-github-urfave-cli (1.18.1-1) unstable; urgency=medium
+
+  * Team upload.
+  * Imported Upstream version 1.18.1
+  * Use debhelper v10
+  * Use golang-any instead of golang-go
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Mon, 14 Nov 2016 14:35:45 +0100
+
+golang-github-urfave-cli (1.18.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #829459).
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Mon, 04 Jul 2016 00:25:48 +1000
